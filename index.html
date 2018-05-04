@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
+    <link href="./css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="./fontawesome-free-5.0.10/web-fonts-with-css//css/fontawesome-all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <title>FrondEnd Test</title>
+</head>
+<body>
+    <div id="container" >
+            <header>
+                <h1 id="idheader">Header</h1>
+            </header>
+
+                <div id="content" >
+                    <div id="sidebar1">
+                    </div>
+                    <div id="sidebar2">
+                    <div id="area-ganti-color" style="height:580px">
+                        <h1 id="text3" > Klik saya untuk mengubah warna Latar</h1>
+                        <button type="button" onclick="return goToKotak()" class="btn btn-primary"> Change color</button>
+                    </div>
+                    </div>
+                    
+                    <div id="column1">
+                         <p> Data Litbang : </p>
+                         <p> Latar belakang pendidikan pengembang permainan elektronik yang terdata: 3 orang SD, 8 orang
+                                SMP, 70 orang SMA, 68 orang SMK, 4 orang D-1, 0 orang D-2, 24 orang D-3, 1 orang D-4, 374
+                                orang S-1, 46 orang S-2, dan 0 orang S-3 </p>
+                     <div id="Box">
+                         <p id="text1" > Tingkat Pendidikan Pekerjaan Studio<br style="font-size: 12px"> Klik Potongan untuk melihat Detail </p>
+                         <canvas id="myChart"></canvas>
+                     </div>
+                     <p>silahkan gunakan pustaka dari HighCharts, Google chart, D3 atau pilihan anda</p>
+                    </div>
+
+                </div>
+
+            <footer>
+                <h1 style="margin-top: 0px">Footer</h1>
+            </footer>
+    </div>
+
+    <script>
+        var indexKotak = 1;
+        function goToKotak() {
+            var color = getColor(indexKotak); 
+            var areaGantiColor = document.getElementById('area-ganti-color');
+            areaGantiColor.style.background = color;
+
+            if(indexKotak == 5){
+                indexKotak = 1;
+            }else{
+                indexKotak++;
+            }
+        }
+
+        function getColor(index) {
+            var color = '#ffaf05';
+            if(index == 1){
+                color = '#fd79a8';
+            }else if (index == 2) {
+                color = '#ff7675';
+            }else if (index == 3) {
+                color = '#fab1a0';
+            }else if (index == 4) {
+                color = '#00cec9';
+            }
+
+            return color;
+        }
+    </script>
+
+    <script type="text/javascript">
+    var now = 0;
+        autoCrement();
+        setInterval(function(){autoCrement()},1000);
+        function autoCrement() {
+            var html = '';
+            
+            var random = now++;
+            var rows = random+8;
+                for (var i=random; i<=rows; i++ ){
+                    for( var k=random; k<=(rows-i); k++){
+                        html += "&nbsp;";
+                    }
+                    for (var j=random; j<=i; j++){
+                        html += zeroOne(j);
+                    }
+                    html += "<br/>";
+                }
+
+                var side_kiri = document.getElementById('sidebar1');
+                side_kiri.innerHTML = html; 
+            }
+
+            function isEven(n) {
+                return n % 2 == 0; 
+            }
+
+            function isOdd(n) {
+                return Math.abs(n % 2) == 1;
+            }
+
+            function zeroOne(int){
+                var value = 0;
+                if(isEven(int)){
+                    value = 1;
+                }
+
+                return value;
+            }
+    </script>
+
+<script>
+    let myChart= document.getElementById('myChart').getContext('2d');
+    let massPopChart = new Chart(myChart, {
+        type: 'pie',
+        data: {
+            labels:['SD','SMP','SMA', 'SMK','D1', 'D2','D3','D4', 'S1','S2','S3'],
+            datasets:[{
+                label: 'Person',
+                data:[
+                    3,
+                    8,
+                    70,
+                    68,
+                    4,
+                    0,
+                    24,
+                    1,
+                    378,
+                    46,
+                    0
+                ],
+                backgroundColor: [
+                'rgb(63, 191, 191)',
+                'rgb(191, 63, 191)',
+                'rgb(191, 63, 127)',
+                'rgb(178, 76, 127)',
+                'rgb(76, 127, 178)',
+                'rgb(127, 76, 178)',
+                'rgba(76, 178, 158, 0.9)',
+                'rgba(19, 91, 107, 0.89)',
+                'rgba(29, 137, 164, 0.95)',
+                'rgba(141, 33, 5, 0.89)',
+                'rgba(33, 5, 141, 0.95)',
+
+                ]
+            }]
+        }
+    })
+</script>
+</body>
+</html>

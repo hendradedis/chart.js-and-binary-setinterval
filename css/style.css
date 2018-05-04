@@ -1,0 +1,75 @@
+/* css Style Fo apps */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+div#container {
+	width: 100%;
+	margin: 10px auto;
+}
+
+#content {
+	background-color:white;
+	height: 560px;
+	overflow: hidden
+}
+
+#column1 {
+	background-color:#dfe6e9;
+	min-height: 560px;
+	margin-left: 300px;
+	margin-right: 300px
+}
+#Box{
+	background-color: whitesmoke;
+	min-height: 400px;
+	width: 98%;
+	margin-left: 8px
+}
+
+#sidebar1 {
+	background-color: white;
+	min-height: 560px;
+	float: left;
+	width: 300px;
+	text-align: center
+}
+
+#sidebar2 {
+	background-color: white;
+	min-height: 560px;
+	float: right;
+	width: 300px;
+	font-size: 0ex
+}
+
+header {
+	background-color:#9b59b6;
+	min-height: 40px;
+}
+
+footer {
+	background-color: darkcyan;
+	min-height: 40px;
+} 
+h1 {
+	text-align: center;	
+	font-size: 12px
+}
+#text1 {
+	font-size: 18px;
+	text-align: center;
+}
+#text3 {
+	margin-top: 0px;
+	font-size: 18px;
+}
+#idheader {
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+#btn-primary {
+	align-items: center;
+}
